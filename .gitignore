@@ -86,7 +86,7 @@ sw.*
 .DS_Store
 
 #BD Infos
-db.config.js
+server/app/config/db.config.js
 
 # Vim swap files
 *.swp
