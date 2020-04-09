@@ -18,7 +18,7 @@ exports.findAll = (req, res) => {
     });
 };
 
-// Find a single Empresa with an id
+// Find a single Empresa with an id.
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
