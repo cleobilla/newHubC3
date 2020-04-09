@@ -85,5 +85,8 @@ sw.*
 # Mac OSX
 .DS_Store
 
+#BD Infos
+db.config.js
+
 # Vim swap files
 *.swp
