@@ -1,6 +1,6 @@
 <template>
   <div>
-    <VmHero :empresa="empresa"></VmHero>
+    <VmHero :empresa="empresa" subTitulo=""></VmHero>
     <div class="section">
       <div class="card is-clearfix columns">
         <figure class="card-image is-480x480 column is-one-thirds">
@@ -48,7 +48,9 @@ export default {
   data () {
     return {
       produto: {},
-      empresa: {},
+      empresa: {
+        nome: ''
+      },
     };
   },
   components: {
@@ -57,6 +59,7 @@ export default {
 
   mounted () {
     this.retrieveProdutosDetalhes(this.$route.params.id);
+    this.retrieveNomeEmpresa();
   },
 
   methods: {
@@ -64,23 +67,14 @@ export default {
       ProdutoDataService.get(id)
         .then(response => {
           this.produto = response.data;
-          console.log("RETORNO: "+JSON.stringify(response.data));
-          this.retrieveNomeEmpresa(this.produto.fkEmpresaId);
         })
         .catch(e => {
           console.log(e);
         });
-      },
-      retrieveNomeEmpresa(id){
-      EmpresaDataService.getEmpresaNome(id)
-        .then(response => {
-          this.empresa = response.data;
-          console.log("EMPRESA: "+id);
-        })
-        .catch(e => {
-          console.log(e);
-        });
-      },
+    },
+    retrieveNomeEmpresa(){
+      this.empresa.nome = this.$store.state.empresaInfo.nome;
+    }
   }
 };
 </script>

@@ -15,7 +15,9 @@
 	    <p><span class="title is-4"><strong>{{ empresa.telefone }}</strong></span></p>
     </div>
     <nuxt-link class="details" 
-    :to="'/empresa/'+empresa.id">
+    :to="'/empresa/'+empresa.id"
+    @click.native="saveNomeEmpresa(empresa.nome)"
+    >
     </nuxt-link>
   </div>
 </template>
@@ -23,8 +25,14 @@
 <script>
 export default {
   name: 'empresas',
-  props: ['empresa']
+  props: ['empresa'],
+  methods:{
+    saveNomeEmpresa (empresa) {
+        console.log("AA"+empresa);
+        this.$store.commit('setEmpresaNome', empresa);
+		}
   }
+}
 </script>
 
 <style lang="scss" scoped>

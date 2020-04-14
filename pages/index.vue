@@ -1,6 +1,6 @@
 <template>
   <div>
-    <VmHero :empresa="empresaLabel"></VmHero>
+    <VmHero :empresa="empresaLabel" subTitulo="Lista de Empresas com serviço de e-commerce"></VmHero>
     <VmEmpresas :empresas="empresas"></VmEmpresas>
   </div>
 </template>
@@ -28,7 +28,6 @@ export default {
       EmpresaDataService.getAll()
         .then(response => {
           this.empresas = response.data;
-          console.log(response.data);
         })
         .catch(e => {
           console.log(e);

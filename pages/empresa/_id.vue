@@ -1,6 +1,6 @@
 <template>
   <div>
-    <VmHero :empresa="empresa"></VmHero>
+    <VmHero :empresa="empresa" subTitulo=""></VmHero>
     <VmProdutos :produtos="produtos"></VmProdutos>
   </div>
 </template>
@@ -16,7 +16,9 @@ export default {
   data() {
     return {
       produtos: [],
-      empresa: {}
+      empresa: {
+          nome: ''
+      }
     };
   },
   components: {
@@ -28,26 +30,18 @@ export default {
       EmpresaDataService.getAllProdutos(id)
         .then(response => {
           this.produtos = response.data;
-          console.log(response.data);
         })
         .catch(e => {
           console.log(e);
         });
     },
-    retrieveNomeEmpresa(id){
-      EmpresaDataService.getEmpresaNome(id)
-        .then(response => {
-          this.empresa = response.data;
-          console.log(response.data);
-        })
-        .catch(e => {
-          console.log(e);
-        });
+    retrieveNomeEmpresa(){
+      this.empresa.nome = this.$store.state.empresaInfo.nome;
     }
   },
   mounted() {
     this.retrieveProdutosFromEmpresa(this.$route.params.id);
-    this.retrieveNomeEmpresa(this.$route.params.id);
+    this.retrieveNomeEmpresa();
   }
 };
 </script>

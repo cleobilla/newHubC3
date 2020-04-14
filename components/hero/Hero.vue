@@ -6,7 +6,7 @@
           {{empresa.nome}}
         </h1>
         <h2 class="subtitle">
-
+          {{subTitulo}}
         </h2>
       </div>
     </div>
@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  props: ['empresa']
+  props: ['empresa','subTitulo']
 }
 </script>
 
