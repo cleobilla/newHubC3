@@ -17,6 +17,7 @@
             <div class="select is-rounded is-small is-pulled-right">
               <select>
                 <option>1</option>
+                <option>2</option>
               </select>
             </div>
           </div>

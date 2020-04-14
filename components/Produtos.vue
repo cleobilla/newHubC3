@@ -20,12 +20,16 @@
       <div class="card-footer btn-actions">
         <div class="card-footer-item field is-grouped">
           <div class="buttons">
-            <button class="button is-primary" v-if="true">{{ addToCartLabel }}</button>
-            <button class="button is-text" v-if="false" >{{ removeFromCartLabel }}</button>
+            <button class="button is-primary" @click="addToCarrinho(produto)" v-if="!isProdutoInCarrinho(produto.id)">{{ addToCartLabel }}</button>
+            <button class="button is-text" @click="removeFromCarrinho(produto.id)" v-if="isProdutoInCarrinho(produto.id)" >{{ removeFromCartLabel }}</button>
           </div>
            <div class="select is-rounded is-small">
-            <select>
+            <select v-model="quantidade">
               <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
             </select>
           </div>
         </div>
@@ -52,8 +56,30 @@ export default {
   data () {
     return {
       addToCartLabel: 'Add to cart',
-      removeFromCartLabel: 'Remove from cart'
+      removeFromCartLabel: 'Remove from cart',
+      quantidade: 1
     }
+  },
+  methods: {
+    isProdutoInCarrinho(id){
+      console.log("?"+this.$store.getters.isProdutoInCarrinho(id));
+      return this.$store.getters.isProdutoInCarrinho(id);
+    },
+    addToCarrinho (produto) {
+      let prodData = {
+        id: produto.id,
+        nome: produto.nome,
+        preco: produto.preco,
+        quantidade: this.quantidade,
+        empresaID: produto.fkEmpresaId
+
+      }
+      this.$store.commit('addToCarrinho', prodData);
+    },
+    removeFromCarrinho (id) {
+      this.$store.commit('removeFromCarrinho', id);
+    }
+
   }
 }
 </script>

@@ -1,4 +1,12 @@
 export const state = () => ({
+  carrinho: [
+    /*{
+      id: '',
+      nome: '',
+      preco: 0.0,
+      quantidade: 0
+    }*/
+],
   empresaInfo: {
     nome: ''
   },
@@ -8,10 +16,29 @@ export const state = () => ({
   }
 })
 
+export const getters = {
+  isProdutoInCarrinho: (state) => (id) => {
+    return state.carrinho.some(item => item.id === id);
+  }
+}
+
 export const mutations = {
+  addToCarrinho:(state,produto) => {
+    state.carrinho.push(produto);
+    console.log("Carrinho: "+JSON.stringify(state.carrinho));
+  },
+  removeFromCarrinho:(state,id) =>{
+    var result = state.carrinho.filter(function(el) {
+      return el.id == id;
+    });
+      
+    for(var elemento of result){
+      var index = state.carrinho.indexOf(elemento);    
+      state.carrinho.splice(index, 1);
+    }
+  },
   setEmpresaNome:(state,nome) => {
     state.empresaInfo.nome=nome;
-    console.log("Aqui");
   },
   setHasUserSearched: (state, hasSearched) => {
     state.userInfo.hasSearched = hasSearched;
