@@ -8,17 +8,27 @@ export const state = () => ({
     }*/
 ],
   empresaInfo: {
+    id: '',
     nome: ''
   },
   userInfo: {
     hasSearched: false,
     productTitleSearched: ''
+  },
+  systemInfo: {
+    openCheckoutModal: false
   }
 })
 
 export const getters = {
   isProdutoInCarrinho: (state) => (id) => {
     return state.carrinho.some(item => item.id === id);
+  },
+  productsAdded: state => {
+    return state.carrinho;
+  },
+  isCheckoutModalOpen: state => {
+    return state.systemInfo.openCheckoutModal;
   }
 }
 
@@ -45,5 +55,8 @@ export const mutations = {
   },
   setProductTitleSearched: (state, titleSearched) => {
     state.userInfo.productTitleSearched = titleSearched;
+  },
+  showCheckoutModal: (state, show) => {
+    state.systemInfo.openCheckoutModal = show;
   }
 }
