@@ -17,7 +17,8 @@ export default {
     return {
       produtos: [],
       empresa: {
-          nome: ''
+          nome: '',
+          id: ''
       }
     };
   },
@@ -36,12 +37,17 @@ export default {
         });
     },
     retrieveNomeEmpresa(){
-      this.empresa.nome = this.$store.state.empresaInfo.nome;
+      this.empresa.nome = this.$store.state.empresa.nome;
+    },
+    retrieveIDEmpresa(){
+      this.empresa.id = this.$store.state.empresa.id;
     }
   },
   mounted() {
     this.retrieveProdutosFromEmpresa(this.$route.params.id);
     this.retrieveNomeEmpresa();
+    this.retrieveIDEmpresa();
+
   }
 };
 </script>

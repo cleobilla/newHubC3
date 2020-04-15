@@ -45,7 +45,7 @@ export default {
 
 	computed: {
 			products () {
-				return this.$store.getters.productsAdded;
+				return this.$store.getters.productsAddedByEmpresa(this.$store.state.empresa.id);
 			},
 			openModal () {
 				if (this.$store.getters.isCheckoutModalOpen) {
@@ -56,7 +56,7 @@ export default {
 			},
 			buyLabel (eid) {
 				let totalProducts = this.products.length,
-						productsAdded = this.$store.getters.productsAdded,
+						productsAdded = this.$store.getters.productsAddedByEmpresa(this.$store.state.empresa.id),
 						pricesArray = [],
 						productLabel = '',
 						finalPrice = '',

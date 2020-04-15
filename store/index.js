@@ -7,9 +7,7 @@ export const state = () => ({
       quantidade: 0
     }*/
 ],
-  empresaInfo: {
-    id: '',
-    nome: ''
+  empresa: {
   },
   userInfo: {
     hasSearched: false,
@@ -27,6 +25,9 @@ export const getters = {
   productsAdded: state => {
     return state.carrinho;
   },
+  productsAddedByEmpresa: (state) => (eid) => {
+    return state.carrinho.filter(item => item.empresaID == eid);
+  },
   isCheckoutModalOpen: state => {
     return state.systemInfo.openCheckoutModal;
   }
@@ -35,7 +36,6 @@ export const getters = {
 export const mutations = {
   addToCarrinho:(state,produto) => {
     state.carrinho.push(produto);
-    console.log("Carrinho: "+JSON.stringify(state.carrinho));
   },
   removeFromCarrinho:(state,id) =>{
     var result = state.carrinho.filter(function(el) {
@@ -47,8 +47,8 @@ export const mutations = {
       state.carrinho.splice(index, 1);
     }
   },
-  setEmpresaNome:(state,nome) => {
-    state.empresaInfo.nome=nome;
+  setEmpresa:(state,empresa) => {
+    state.empresa=empresa;
   },
   setHasUserSearched: (state, hasSearched) => {
     state.userInfo.hasSearched = hasSearched;

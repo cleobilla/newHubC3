@@ -16,7 +16,7 @@
     </div>
     <nuxt-link class="details" 
     :to="'/empresa/'+empresa.id"
-    @click.native="saveNomeEmpresa(empresa.nome)"
+    @click.native="saveEmpresa(empresa)"
     >
     </nuxt-link>
   </div>
@@ -27,9 +27,8 @@ export default {
   name: 'empresas',
   props: ['empresa'],
   methods:{
-    saveNomeEmpresa (empresa) {
-        console.log("AA"+empresa);
-        this.$store.commit('setEmpresaNome', empresa);
+    saveEmpresa (empresa) {
+        this.$store.commit('setEmpresa', empresa);
 		}
   }
 }

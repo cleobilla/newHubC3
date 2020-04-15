@@ -15,7 +15,7 @@
                   <span class="icon">
                     <i class="fa fa-shopping-cart"></i>
                   </span>
-                  <span :class="[numProductsAdded > 0 ? 'tag is-info' : '']">{{ numProductsAdded }}</span>
+                  <span :class="[numProductsAdded(empresa.id) > 0 ? 'tag is-info' : '']">{{ numProductsAdded(empresa.id) }}</span>
               </div>
             </div>
           </div>
@@ -33,13 +33,11 @@ export default {
       isCheckoutActive: false
     }
   },
-  computed: {
-    numProductsAdded () {
-      return this.$store.getters.productsAdded.length;
-    }
-  },
 
   methods: {
+    numProductsAdded (eid) {
+      return this.$store.getters.productsAddedByEmpresa(eid).length;
+    },
     showCheckoutModal () {
       this.$store.commit('showCheckoutModal', true);
     }
