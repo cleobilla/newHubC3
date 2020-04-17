@@ -1,6 +1,6 @@
 <template>
   <div>
-    <VmHero :empresa="empresaLabel" subTitulo="Lista de Empresas com serviço de e-commerce"></VmHero>
+    <VmHero :empresa="empresaTemp" subTitulo="Lista de Empresas com serviço de e-commerce"></VmHero>
     <VmEmpresas :empresas="empresas"></VmEmpresas>
   </div>
 </template>
@@ -16,7 +16,11 @@ export default {
   data() {
     return {
       empresas: [],
-      empresaLabel: {nome: "Empresas"}
+      empresaTemp: 
+        {
+          nome: "Empresas",
+          id:-1
+        }
     };
   },
   components: {

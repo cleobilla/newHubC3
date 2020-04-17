@@ -14,6 +14,18 @@ module.exports = (sequelize, Sequelize) => {
 	    allowNull: true,
 	    type: Sequelize.STRING
 	},
+	facebook: {
+	    allowNull: true,
+	    type: Sequelize.STRING
+	},
+	whatsapp: {
+	    allowNull: true,
+	    type: Sequelize.STRING
+	},
+	instagram: {
+	    allowNull: true,
+	    type: Sequelize.STRING
+	},
 	data: {
 	    allowNull: true,
 	    type: Sequelize.BLOB('long')

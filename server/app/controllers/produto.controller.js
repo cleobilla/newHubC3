@@ -8,7 +8,7 @@ const sequelize = db.sequelize;
 exports.findAll = (req, res) => {
   const id = req.params.id;
     Produto.findAll({
-	where: { fkEmpresaId: id },
+	where: { novaTabEmpresaId: id },
 	attributes: {include: [[sequelize.fn('TO_BASE64', sequelize.col('data')), 'imagem']], exclude: ['data']}
     })
     .then(data => {

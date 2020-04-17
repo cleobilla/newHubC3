@@ -77,7 +77,7 @@ export default {
         nome: produto.nome,
         preco: produto.preco,
         quantidade: this.quantidade,
-        empresaID: produto.fkEmpresaId
+        empresaID: produto.novaTabEmpresaId
 
       }
       this.$store.commit('addToCarrinho', prodData);

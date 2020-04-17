@@ -1,7 +1,7 @@
 <template>
  
   <div class="columns is-centered is-multiline">
-    <div class="card column is-one-quarter" v-for="empresa in empresas" :key="empresa.id">
+    <div class="card is-centered column is-one-quarter" v-for="empresa in empresas" :key="empresa.id" style="max-width: 20rem;">
       <VmEmpresas :empresa="empresa"></VmEmpresas>
     </div>
   </div>

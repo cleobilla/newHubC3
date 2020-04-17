@@ -24,6 +24,6 @@ db.empresa = require("./empresa.model.js")(sequelize, Sequelize);
 db.produto = require("./produto.model.js")(sequelize, Sequelize);
 // RELACOES ENTRE TABELAS
 db.empresa.hasMany(db.produto);
-db.produto.belongsTo(db.empresa,{as: 'fk_empresa'});
+db.produto.belongsTo(db.empresa);
 
 module.exports = db;

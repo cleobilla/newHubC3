@@ -1,10 +1,10 @@
 <template>
   <div>
+    <!---
     <VmHeader></VmHeader>
-    <main>
+    --->
       <nuxt/>
       <VmCheckoutModal></VmCheckoutModal>
-    </main>
     <VmFooter></VmFooter>
   </div>
 </template>
