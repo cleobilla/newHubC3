@@ -3,9 +3,9 @@
 
 <template>
   <div>
-      <div class="card-image">
-        <figure class="card-image has-text-centered">
-          <img :src="'data:image/jpeg;base64,'+empresa.imagem" :alt="empresa.logoNome+'.jpg'">
+      <div class="card-image is-flex" style="height: 300px;justify-content: center;align-items: center;">
+        <figure class="card-image">
+          <img :src="'data:image/jpeg;base64,'+empresa.imagem" :alt="empresa.logoNome+'.jpg'" style="max-height: 300px;">
         </figure>
       </div>
 

@@ -6,7 +6,12 @@ const sequelize = db.sequelize;
 // Retrieve all Empresas from the database.
 exports.findAll = (req, res) => {
     //    Empresa.findAll({attributes: { include: [[sequelize.fn('TO_BASE64', sequelize.col('data'),'imagem')]] }})
-    Empresa.findAll({attributes: {include: [[sequelize.fn('TO_BASE64', sequelize.col('data')), 'imagem']], exclude: ['data']}})
+    Empresa.findAll({
+        attributes: {
+          include: [[sequelize.fn('TO_BASE64', sequelize.col('data')), 'imagem']], exclude: ['data']
+        },
+        order: [['nome','asc']]
+      })
     .then(data => {
       res.send(data);
     })

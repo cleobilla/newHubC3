@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="card-image">
-      <figure class="card-image is-480x480 column is-one-thirds has-text-centered">
-        <img :src="'data:image/jpeg;base64,'+produto.imagem" :alt="produto.imagemNome+'.jpg'">
+    <div class="card-image is-flex" style="height: 300px;justify-content: center;align-items: center;">
+      <figure class="card-image">
+        <img :src="'data:image/jpeg;base64,'+produto.imagem" :alt="produto.imagemNome+'.jpg'" style="max-height: 300px;">
       </figure>
     </div>
     <div class="card-content">
