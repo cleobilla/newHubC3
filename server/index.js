@@ -1,11 +1,18 @@
 const express = require('express')
 const consola = require('consola')
+const cors = require('cors');
 const { Nuxt, Builder } = require('nuxt')
 const app = express()
+
+
+app.use(cors());
+
 
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
 config.dev = process.env.NODE_ENV !== 'production'
+
+
 
 // Importa modelos do BD
 const db = require("./app/models");

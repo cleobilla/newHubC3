@@ -5,7 +5,7 @@ class EmpresaDataService {
     return http.get("/empresas");
   }
   getEmpresaNome(id){
-     return http.get(`empresas/${id}`);
+     return http.get(`/empresas/${id}`);
   }
   getAllProdutos(id) {
     return http.get(`/empresa/${id}`);

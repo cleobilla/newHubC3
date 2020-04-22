@@ -3,23 +3,11 @@ module.exports = app => {
 
   var router = require("express").Router();
 
-  // Retrieve all Tutorials
+  // Retrieve all Empresas
   router.get("/", empresa.findAll);
 
-/*  // Retrieve all published Tutorials
-  router.get("/published", tutorials.findAllPublished);
-*/
-  // Retrieve a single Empresa with id
+  // Retrieva empresa com id 
   router.get("/:id", empresa.findOne);
-/*
-  // Update a Tutorial with id
-  router.put("/:id", tutorials.update);
 
-  // Delete a Tutorial with id
-  router.delete("/:id", tutorials.delete);
-
-  // Create a new Tutorial
-  router.delete("/", tutorials.deleteAll);
-*/
   app.use('/api/empresas', router);
 };
