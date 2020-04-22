@@ -18,6 +18,10 @@ module.exports = (sequelize, Sequelize) => {
 	    allowNull: true,
 	    type: Sequelize.STRING
 	},
+	twitter: {
+	    allowNull: true,
+	    type: Sequelize.STRING
+	},
 	whatsapp: {
 	    allowNull: true,
 	    type: Sequelize.STRING
