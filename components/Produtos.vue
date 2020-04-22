@@ -62,8 +62,8 @@ export default {
 
   data () {
     return {
-      addToCartLabel: 'Add to cart',
-      removeFromCartLabel: 'Remove from cart',
+      addToCartLabel: 'Adicionar',
+      removeFromCartLabel: 'Remover',
       quantidade: 1
     }
   },

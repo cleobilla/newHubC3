@@ -23,12 +23,12 @@
         </div>
         -->
 
-        <div class="navbar-menu is-active"> <!-- v-if="!begin"> -->
+        <div class="navbar-menu is-active">
           <div class="navbar-end">
             <div class="navbar-item field">
               <VmSearch></VmSearch>
             </div>
-            <div class="navbar-item social">
+            <div class="navbar-item social" v-if="!begin">
               <a v-if="Empresa.whatsapp!=null" :href="Empresa.whatsapp" class="icon is-medium 2rem x 2rem" :title="whatsAppTootltip">
                 <i class="fa fa-whatsapp fa"></i>
               </a>
@@ -45,7 +45,7 @@
                 <i class="fa fa-linkedin fa"></i>
               </a>
             </div>
-            <div class="navbar-item shopping-cart" @click="showCheckoutModal">
+            <div class="navbar-item shopping-cart" @click="showCheckoutModal" v-if="!begin">
               <span class="icon is-medium 2rem x 2rem">  <i class="fa fa-shopping-cart"></i> </span>
               <span :class="[numProductsAdded(empresa.id) > 0 ? 'tag is-info' : '']"> {{ numProductsAdded(empresa.id) }}</span>
             </div>
@@ -77,6 +77,8 @@
               {{Empresa.telefone}}
           </nuxt-link>
         </h2>
+        <h2 v-if="!begin" class="subtitle has-text-centered"> {{Empresa.endereco}} </h2>
+        <h2 v-if="!begin" class="subtitle has-text-centered"> {{Empresa.bairro}} </h2>
       </div>
     </div>
   </section>
@@ -97,7 +99,8 @@ export default {
   data(){
     return {
       isCheckoutActive: false,
-      Empresa: {whatsapp: null,
+      Empresa: {
+                whatsapp: null,
                 facebook: null,
                 twitter: null,
                 linkedin: null,

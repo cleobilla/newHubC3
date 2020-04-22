@@ -30,6 +30,14 @@ module.exports = (sequelize, Sequelize) => {
 	    allowNull: true,
 	    type: Sequelize.STRING
 	},
+	endereco: {
+	    allowNull: true,
+	    type: Sequelize.STRING
+	},
+	bairro: {
+	    allowNull: true,
+	    type: Sequelize.STRING
+	},
 	data: {
 	    allowNull: true,
 	    type: Sequelize.BLOB('long')
