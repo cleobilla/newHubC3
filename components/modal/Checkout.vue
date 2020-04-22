@@ -94,6 +94,8 @@ export default {
       		this.$store.commit('removeFromCarrinho', id);
     	},
 		onNextBtn () {
+			const url = this.$store.state.empresa.whatsapp;
+			window.open(url);
 			console.log("Comprar");
 		},
 		onPrevBtn () {

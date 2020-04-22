@@ -1,6 +1,6 @@
 <template>
   <section class="hero is-dark">
-    <div class="hero-head">
+    <div class="hero-head has-background-black">
       <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand" >
           <nuxt-link :to="{ name: 'index' }" class="navbar-item">
@@ -81,6 +81,12 @@
         <h2 v-if="!begin" class="subtitle has-text-centered"> {{Empresa.bairro}} </h2>
       </div>
     </div>
+    
+      <div class="float shopping-cart" @click="showCheckoutModal" v-if="!begin">
+        <span class="icon is-medium 2rem x 2rem">  <i class="fa fa-shopping-cart"></i> </span>
+              <span :class="[numProductsAdded(empresa.id) > 0 ? 'tag is-info' : '']"> {{ numProductsAdded(empresa.id) }}</span>
+      </div>
+    
   </section>
 </template>
 
@@ -156,6 +162,19 @@ export default {
     }
     * {
       border: 0px solid red;
+    }
+    .float{
+	    position:fixed;
+	    width:80px;
+	    height:40px;
+	    bottom:40px;
+	    right:40px;
+	    background-color:darkgray ;
+	    color:#FFF;
+	    border-radius:50px;
+	    text-align:center;
+	    box-shadow: 2px 2px 3px #999;
+      z-index: 999;
     }
 
 </style>

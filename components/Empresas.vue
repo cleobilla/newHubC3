@@ -4,15 +4,18 @@
 <template>
   <div>
       <div class="card-image">
-        <figure class="image is-3by4">
+        <figure class="card-image has-text-centered">
           <img :src="'data:image/jpeg;base64,'+empresa.imagem" :alt="empresa.logoNome+'.jpg'">
         </figure>
       </div>
+
+
+
       <div class="card-content">
         <div class="media">
           <div class="media-content">
             <p class="title is-4 has-text-centered">{{ empresa.nome }}</p>
-            <p class="subtitle is-4 has-text-centered"> <span class="icon is-medium 2rem x 2rem"> <i class="fa fa-phone fa"></i> </span> {{ empresa.telefone }} </p>    
+            <p class="subtitle has-text-centered"> <span class="icon is-medium 2rem x 2rem"> <i class="fa fa-phone fa"></i> </span>{{ empresa.telefone }}</p>    
             <p class="has-text-centered"> {{ empresa.endereco }} </p>
             <p class="has-text-centered"> {{ empresa.bairro }} </p>
           </div>

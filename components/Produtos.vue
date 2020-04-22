@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="card-image">
-      <figure class="image is-4by3">
+      <figure class="card-image is-480x480 column is-one-thirds has-text-centered">
         <img :src="'data:image/jpeg;base64,'+produto.imagem" :alt="produto.imagemNome+'.jpg'">
       </figure>
     </div>
