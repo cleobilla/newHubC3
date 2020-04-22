@@ -11,7 +11,7 @@ export const state = () => ({
   },
   userInfo: {
     hasSearched: false,
-    productTitleSearched: ''
+    titleSearched: ''
   },
   systemInfo: {
     openCheckoutModal: false
@@ -53,8 +53,8 @@ export const mutations = {
   setHasUserSearched: (state, hasSearched) => {
     state.userInfo.hasSearched = hasSearched;
   },
-  setProductTitleSearched: (state, titleSearched) => {
-    state.userInfo.productTitleSearched = titleSearched;
+  setTitleSearched: (state, titleSearched) => {
+    state.userInfo.titleSearched = titleSearched;
   },
   showCheckoutModal: (state, show) => {
     state.systemInfo.openCheckoutModal = show;

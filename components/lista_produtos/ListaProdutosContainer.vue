@@ -36,7 +36,7 @@ export default {
   methods: {
     getProductByTitle () {
       let listOfProducts = this.$props.produtos,
-          titleSearched = this.$store.state.userInfo.productTitleSearched;
+          titleSearched = this.$store.state.userInfo.titleSearched;
       
       return this.productsFiltered = getByTitle(listOfProducts, titleSearched);
     }

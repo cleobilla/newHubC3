@@ -3,9 +3,9 @@
 		<input
 			class="input is-rounded"
 			type="text"
-			v-model="value"
+			v-model="searchValue"
 			:placeholder="placeholder"
-			@keyup="search(value)"
+			@keyup="search(searchValue)"
 		>
 		<span class="icon is-small is-left">
 			<i class="fa fa-search"></i>
@@ -18,8 +18,12 @@ export default {
   name: 'search',
 	data () {
 		return {
-			value: ''
+			searchValue: ''
 		}
+	},
+	mounted(){
+		this.$store.commit('setHasUserSearched', false);
+		this.$store.commit('setTitleSearched', '');
 	},
 
 	computed: {
@@ -36,10 +40,10 @@ export default {
 		search (value) {
 			if (value.length > 0) {
 				this.$store.commit('setHasUserSearched', true);
-				this.$store.commit('setProductTitleSearched', value);
+				this.$store.commit('setTitleSearched', value);
 			} else {
 				this.$store.commit('setHasUserSearched', false);
-				this.$store.commit('setProductTitleSearched', '');
+				this.$store.commit('setTitleSearched', '');
 			}
 		}
 	}

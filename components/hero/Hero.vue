@@ -23,12 +23,12 @@
         </div>
         -->
 
-        <div class="navbar-menu is-active">
+        <div class="navbar-menu is-active"> <!-- v-if="!begin"> -->
           <div class="navbar-end">
             <div class="navbar-item field">
               <VmSearch></VmSearch>
             </div>
-            <div class="navbar-item social" v-if="!begin">
+            <div class="navbar-item social">
               <a v-if="Empresa.whatsapp!=null" :href="Empresa.whatsapp" class="icon is-medium 2rem x 2rem" :title="whatsAppTootltip">
                 <i class="fa fa-whatsapp fa"></i>
               </a>

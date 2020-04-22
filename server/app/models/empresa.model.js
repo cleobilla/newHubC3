@@ -22,6 +22,10 @@ module.exports = (sequelize, Sequelize) => {
 	    allowNull: true,
 	    type: Sequelize.STRING
 	},
+	linkedin: {
+	    allowNull: true,
+	    type: Sequelize.STRING
+	},
 	instagram: {
 	    allowNull: true,
 	    type: Sequelize.STRING
